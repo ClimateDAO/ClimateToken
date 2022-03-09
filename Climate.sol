@@ -15,14 +15,13 @@ contract Climate is ERC20, Pausable, Ownable, ERC20Permit, ERC20Votes {
 
     //Tx fees variables
     uint256 public _initialTaxFee = 15; 
-    uint256 private _previousInitialTaxFee = _initialTaxFee; 
     uint256 public _expiry = 15780000;
     mapping (address => uint256) internal _lastTokenTransferTime;
     mapping (address => bool) internal isExcludedFromFee;
 
     //opsClimateDAOWallet for purposes of tx fee
-    address opsClimateDAOWallet = 0x20c7F2a24f33cF4F02D2D185e49aC7B1C975d37f; //Change this to our gnosis safe before deploying // 
-    address treasuryClimateDAOWallet = 0x20c7F2a24f33cF4F02D2D185e49aC7B1C975d37f; //Change this to our gnosis safe before deploying
+    address opsClimateDAOWallet = 0x20c7F2a24f33cF4F02D2D185e49aC7B1C975d37f;
+    address treasuryClimateDAOWallet = 0x20c7F2a24f33cF4F02D2D185e49aC7B1C975d37f;
     
     constructor() ERC20("Climate", "CLIMATE") ERC20Permit("Climate") {
         _mint(msg.sender, 1000000 * 10 ** decimals());
