@@ -32,7 +32,19 @@ expiry * 100
 <br>
 The fee is sent to the climateDAO treasury wallets, and we then subtract the original amount from this fee and send it to its intended recipient.
 
+Accounts can be excluded from the transfer fee and the transfer fee can be changed. In the future, we will make the governance smart contract the owner of the climate token contract so these can only be controlled by a successful DAO proposal.
+
 ## Transferable Flag
+Upon the initial private release of the platform, we do not want other users to be able to transfer the token until the official launch. We have implemented a flag that prevents transfers from anyone who is not the contract owner until we allow transfers. This feature is controlled by the makeTransferable() and makeNonTransferable() functions.
+
+## Pausable
+ERC20 token with pausable token transfers, minting and burning.
+
+Useful for scenarios such as preventing trades until the end of an evaluation period, or having an emergency switch for freezing all token transfers in the event of a large bug.
+
+## Set New Wallet Address
+The setNewWalletAddress(uint8 wallet0or1, address newAddress) function allows for us to change the DAO treasury wallets that the transfer fee is sent to. This is useful so that we are able to change where the funds are stored in the future without redeploying the token contract
+
 
 
 
